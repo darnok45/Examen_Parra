@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { defineEmits, ref, computed } from 'vue'
-import { useCartStore } from '@/stores/CartStore'
+import { useCartStore } from '@/stores/cartStore'
 
 const emit = defineEmits(['toggle-cart'])
 const isOpen = ref(false)
 
-// 🛒 Store del carrito
+
 const cart = useCartStore()
 const totalItems = computed(() => cart.totalItems)
 </script>

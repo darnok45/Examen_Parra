@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import type { Book } from '@/models/Book'
 import { defineProps } from 'vue'
-import { useCartStore } from '@/stores/CartStore' // 🛒 importamos el store
+import { useCartStore } from '@/stores/cartStore' 
 
 const props = defineProps<{ book: Book }>()
 
-// 🧠 Instancia del store
 const cart = useCartStore()
 
-// 📦 Función para agregar el libro
+
 const agregarAlCarrito = () => {
   cart.addBook(props.book)
 }

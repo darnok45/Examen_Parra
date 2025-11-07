@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { defineProps, defineEmits, computed } from 'vue'
-import { useCartStore } from '@/stores/CartStore'
+import { useCartStore } from '@/stores/cartStore'
 import Swal from 'sweetalert2'
 
 
 const props = defineProps<{ open: boolean }>()
 const emit = defineEmits(['close'])
 
-// 🛒 Store del carrito
+
 const cart = useCartStore()
 
 const books = computed(() => cart.books)
@@ -17,7 +17,7 @@ const totalPrice = computed(() => cart.totalPrice)
 </script>
 
 <template>
-  <!-- Overlay -->
+
   <div
     v-if="open"
     @click="emit('close')"
@@ -29,7 +29,7 @@ const totalPrice = computed(() => cart.totalPrice)
     class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 z-50 flex flex-col"
     :class="open ? 'translate-x-0' : 'translate-x-full'"
   >
-    <!-- Header -->
+ 
     <div class="flex justify-between items-center p-4 border-b border-gray-200">
       <h2 class="text-lg font-semibold text-emerald-700">Tu Carrito</h2>
       <button @click="emit('close')" class="text-gray-500 hover:text-gray-700">
